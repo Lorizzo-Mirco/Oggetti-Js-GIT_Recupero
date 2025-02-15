@@ -5,18 +5,18 @@ let Artisti = []
 let Artista1Playlist = [];
 Song = {
     titolo: "Uprising",
-    immagine: "Uprising - Muse.webp",
+    immagine: "Muse/Uprising - Muse.webp",
     informazioni: "Uprising è un singolo del gruppo musicale britannico Muse, pubblicato il 4 agosto 2009 come primo estratto dal quinto album in studio The Resistance.",
-    audio: "Uprising - Muse.mp3",
-    link: "https://www.youtube.com/watch?v=w8KQmps-Sog&ab_channel=Muse"
+    audio: "Muse/Uprising - Muse.mp3",
+    link: "https://www.youtube.com/embed/w8KQmps-Sog?enablejsapi=1&ab_channel=Muse"
 }
 Artista1Playlist[0] = Song;
 Song = {
     titolo: "Supermassive Black Hole",
-    immagine: "Supermassive Black Hole - Muse.webp",
+    immagine: "Muse/Supermassive Black Hole - Muse.webp",
     informazioni: "Supermassive Black Hole is a song by English rock band Muse. Written by Muse lead singer and principal songwriter Matt Bellamy, it was released as the lead single from the band's fourth studio album, Black Holes and Revelations (2006), on 19 June 2006, backed with Crying Shame",
-    audio: "Supermassive Black Hole - Muse.mp3",
-    link: "https://www.youtube.com/watch?v=Xsp3_a-PMTw&ab_channel=Muse"
+    audio: "Muse/Supermassive Black Hole - Muse.mp3",
+    link: "https://www.youtube.com/embed/Xsp3_a-PMTw?enablejsapi=1&ab_channel=Muse"
 }
 Artista1Playlist[1] = Song;
 
@@ -24,18 +24,18 @@ Artista1Playlist[1] = Song;
 let Artista2Playlist = [];
 Song = {
     titolo: "Heartbreak Hotel",
-    immagine: "Heartbreak Hotel - Elvis Presley.webp",
+    immagine: "Elvis Presley/Heartbreak Hotel - Elvis Presley.webp",
     informazioni: "Heartbreak Hotel è un brano musicale del cantante rock statunitense Elvis Presley, pubblicato il 27 gennaio 1956 dall'etichetta discografica RCA Records nel singolo Heartbreak Hotel/I Was the One.",
-    audio: "Heartbreak Hotel - Elvis Presley.mp3",
-    link: "https://www.youtube.com/watch?v=e9BLw4W5KU8"
+    audio: "Elvis Presley/Heartbreak Hotel - Elvis Presley.mp3",
+    link: "https://www.youtube.com/embed/e9BLw4W5KU8?enablejsapi=1"
 }
 Artista2Playlist[0] = Song;
 Song = {
     titolo: "Jailhouse Rock",
-    immagine: "Jailhouse Rock - Elvis Presley.webp",
+    immagine: "Elvis Presley/Jailhouse Rock - Elvis Presley.webp",
     informazioni: "Jailhouse Rock è un brano musicale composto da Jerry Leiber e Mike Stoller, portato al successo da Elvis Presley nel 1957 che la incise nel singolo Jailhouse Rock/Treat Me Nice e nell'EP Jailhouse Rock.",
-    audio: "Jailhouse Rock - Elvis Presley.mp3",
-    link: "https://www.youtube.com/watch?v=PpsUOOfb-vE&ab_channel=ElvisPresleyVEVO"
+    audio: "Elvis Presley/Jailhouse Rock - Elvis Presley.mp3",
+    link: "https://www.youtube.com/embed/PpsUOOfb-vE?enablejsapi=1&ab_channel=ElvisPresleyVEVO"
 }
 Artista2Playlist[1] = Song;
 
@@ -43,25 +43,25 @@ Artista2Playlist[1] = Song;
 let Artista3Playlist = [];
 Song = {
     titolo: "Imagine",
-    immagine: "Imagine - Jonn Lennon.webp",
+    immagine: "John Lennon/Imagine - Jonn Lennon.webp",
     informazioni: "Imagine è un singolo del cantante britannico John Lennon, pubblicato l'11 ottobre 1971 come estratto dall'album omonimo.",
-    audio: "Imagine - Jonn Lennon.mp3",
-    link: "https://www.youtube.com/watch?v=YkgkThdzX-8&ab_channel=johnlennon"
+    audio: "John Lennon/Imagine - Jonn Lennon.mp3",
+    link: "https://www.youtube.com/embed/YkgkThdzX-8?enablejsapi=1&ab_channel=johnlennon"
 }
 Artista3Playlist[0] = Song;
 Song = {
     titolo: "#9 Dream",
-    immagine: "#9 Dream - Jonn Lennon.webp",
+    immagine: "John Lennon/9 Dream - Jonn Lennon.webp",
     informazioni: "#9 Dream/What You Got è un singolo discografico di John Lennon pubblicato nel 1975.",
-    audio: "#9 Dream - Jonn Lennon.mp3",
-    link: "https://www.youtube.com/watch?v=7zZsKOvXiFo&ab_channel=johnlennon"
+    audio: "John Lennon/9 Dream - Jonn Lennon.mp3",
+    link: "https://www.youtube.com/embed/7zZsKOvXiFo?enablejsapi=1&ab_channel=johnlennon"
 }
 Artista3Playlist[1] = Song;
 
 // DICHIARAZIONE CLASSI ARTISTI
 const Artista1 = {
     nome: "Muse",
-    cognome: "N/A",
+    cognome: "",
     biografia: "I Muse sono un gruppo musicale rock alternativo britannico formatosi nel 1992 a Teignmouth. Sono riconosciuti per uno stile musicale molto eclettico che raccoglie influenze di più generi come elettronica, pop e rock, spesso segnati da una vena sinfonica e orchestrale. La maggior parte dei testi delle loro canzoni, composte principalmente dal frontman Matthew Bellamy, trattano temi riguardanti apocalisse, UFO, guerra, vita, universo, politica, religione, amore e odio. Le loro esibizioni dal vivo sono state definite estremamente energiche e stravaganti.",
     playlist: Artista1Playlist
 };
@@ -82,3 +82,94 @@ const Artista3 = {
 Artisti[0] = Artista1;
 Artisti[1] = Artista2;
 Artisti[2] = Artista3;
+
+function CaricaPagina() {
+    const Pagina = document.getElementById("Main");
+
+    for (let i = 0; i < Artisti.length; i++) {
+        var Artista = Artisti[i]
+
+        // CREAZIONE DI UN DIV IN CUI INSERIRE L'ARTISTA CON LE CANZONI
+        let divArtista = document.createDocumentFragment(); //CREA IL FRAMMENTO
+        let div = document.createElement("div"); //CREA L'ELEMENTO DIV
+        div.id = "Artista" + i; //AGGIUNGE L'ID ARTISTA PIù IL NUMERO
+        div.classList.add("Artista"); //AGGIUNGE LA CLASSE ARTISTA
+        divArtista.appendChild(div); //APPENDE IL DIV AL FRAMMENTO
+        Pagina.appendChild(divArtista); //AGGIUNGE ALLA PAGINA(DIV MAIN) IL FRAMMENTO
+
+        // RIPRENDE IL DIV SOPRA MA TRAMITE ID SULLA PAGINA
+        divArtista = document.getElementById("Artista" + i)
+
+        const HTMLArtista = document.createDocumentFragment();
+
+        const txtArtista = document.createElement("h2");
+        txtArtista.textContent = Artista.nome + " " + Artista.cognome;
+        HTMLArtista.appendChild(txtArtista);
+
+        divArtista.appendChild(HTMLArtista)
+
+        for (let j = 0; j < Artista.playlist.length; j++) {
+            const HTMLInfo = document.createDocumentFragment();
+            var Canzone = Artista.playlist[j]
+
+            // CREAZIONE DI UN DIV IN CUI INSERIRE L'ARTISTA CON LE CANZONI
+            let divCanzone = document.createDocumentFragment(); //CREA IL FRAMMENTO
+            div = document.createElement("div"); //CREA L'ELEMENTO DIV
+            div.id = "Canzone" + i + j
+            div.classList.add("Canzone"); //AGGIUNGE LA CLASSE ARTISTA
+            divArtista.appendChild(div); //APPENDE IL DIV AL FRAMMENTO
+            Pagina.appendChild(divArtista); //AGGIUNGE ALLA PAGINA(DIV MAIN) IL FRAMMENTO
+
+            divCanzone = document.getElementById("Canzone" + i + j)
+
+            // CREAZIONE DI UN DIV IN CUI INSERIRE L'ARTISTA CON LE CANZONI
+            let divInfo = document.createDocumentFragment(); //CREA IL FRAMMENTO
+            div = document.createElement("div"); //CREA L'ELEMENTO DIV
+            div.id = "Info" + i + j
+            div.classList.add("Info"); //AGGIUNGE LA CLASSE ARTISTA
+            divInfo.appendChild(div); //APPENDE IL DIV AL FRAMMENTO
+            divCanzone.appendChild(divInfo); //AGGIUNGE ALLA PAGINA(DIV MAIN) IL FRAMMENTO
+
+            divInfo = document.getElementById("Info" + i + j)
+
+            const txtTitolo = document.createElement("h3");
+            txtTitolo.textContent = Canzone.titolo;
+            txtTitolo.classList.add("Info")
+            txtTitolo.classList.add("Text")
+            HTMLInfo.appendChild(txtTitolo);
+
+            const img = document.createElement("img");
+            img.src = "Images/" + Canzone.immagine
+            img.classList.add("Info")
+            img.classList.add("Img")
+            HTMLInfo.appendChild(img);
+
+            const btnPlay = document.createElement("button");
+            btnPlay.textContent = "PLAY";
+            btnPlay.classList.add("Info")
+            btnPlay.classList.add("Button")
+            HTMLInfo.appendChild(btnPlay);
+
+            const btnInfo = document.createElement("button");
+            btnInfo.textContent = "INFO";
+            btnInfo.classList.add("Info")
+            btnInfo.classList.add("Button")
+            HTMLInfo.appendChild(btnInfo);
+
+            const iframeYoutube = document.createElement("iframe");
+            iframeYoutube.src = Canzone.link;
+            iframeYoutube.classList.add("Video")
+            iframeYoutube.width = 560;
+            iframeYoutube.height = 315;
+            iframeYoutube.title = "Video di" + Canzone.titolo;
+            iframeYoutube.frameBorder = 0
+            iframeYoutube.allow ="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            iframeYoutube.referrerPolicy = "strict-origin-when-cross-origin"
+            divCanzone.appendChild(iframeYoutube);
+
+            divInfo.appendChild(HTMLInfo)
+        }
+
+        Pagina.appendChild(divArtista)
+    }
+}

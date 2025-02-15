@@ -41,6 +41,7 @@ p {
     .Img {
         border: 5px solid transparent;
         border-radius: 25px;
+        max-width: 300px;
     }
 
     .Button {
