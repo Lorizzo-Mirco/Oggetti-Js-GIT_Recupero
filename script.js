@@ -112,11 +112,11 @@ function CaricaPagina() {
             const HTMLInfo = document.createDocumentFragment();
             var Canzone = Artista.playlist[j]
 
-            // CREAZIONE DI UN DIV IN CUI INSERIRE L'ARTISTA CON LE CANZONI
+            // CREAZIONE DI UN DIV IN CUI INSERIRE LE CANZONI DELL'ARTISTA
             let divCanzone = document.createDocumentFragment(); //CREA IL FRAMMENTO
             div = document.createElement("div"); //CREA L'ELEMENTO DIV
             div.id = "Canzone" + i + j
-            div.classList.add("Canzone"); //AGGIUNGE LA CLASSE ARTISTA
+            div.classList.add("Canzone"); //AGGIUNGE LA CLASSE CANZONE
             divArtista.appendChild(div); //APPENDE IL DIV AL FRAMMENTO
             Pagina.appendChild(divArtista); //AGGIUNGE ALLA PAGINA(DIV MAIN) IL FRAMMENTO
 
@@ -126,7 +126,7 @@ function CaricaPagina() {
             let divInfo = document.createDocumentFragment(); //CREA IL FRAMMENTO
             div = document.createElement("div"); //CREA L'ELEMENTO DIV
             div.id = "Info" + i + j
-            div.classList.add("Info"); //AGGIUNGE LA CLASSE ARTISTA
+            div.classList.add("Info"); //AGGIUNGE LA CLASSE INFO
             divInfo.appendChild(div); //APPENDE IL DIV AL FRAMMENTO
             divCanzone.appendChild(divInfo); //AGGIUNGE ALLA PAGINA(DIV MAIN) IL FRAMMENTO
 
@@ -142,18 +142,23 @@ function CaricaPagina() {
             img.src = "Images/" + Canzone.immagine
             img.classList.add("Info")
             img.classList.add("Img")
+            img.id = "img" +  + i + j
             HTMLInfo.appendChild(img);
 
             const btnPlay = document.createElement("button");
             btnPlay.textContent = "PLAY";
-            btnPlay.classList.add("Info")
-            btnPlay.classList.add("Button")
+            btnPlay.classList.add("Info");
+            btnPlay.classList.add("Button");
+            btnPlay.id = "btnPlay" + i + j;
+            btnPlay.onclick = () => PlaySong(btnPlay.id);
             HTMLInfo.appendChild(btnPlay);
 
             const btnInfo = document.createElement("button");
             btnInfo.textContent = "INFO";
-            btnInfo.classList.add("Info")
-            btnInfo.classList.add("Button")
+            btnInfo.classList.add("Info");
+            btnInfo.classList.add("Button");
+            btnInfo.id = "btnInfo" + i + j;
+            btnInfo.onclick = () => MostraInfo(btnInfo.id);
             HTMLInfo.appendChild(btnInfo);
 
             const iframeYoutube = document.createElement("iframe");
@@ -172,4 +177,18 @@ function CaricaPagina() {
 
         Pagina.appendChild(divArtista)
     }
+}
+
+function PlaySong(id) {
+    var nArtista = Math.floor(id.replace("btnPlay", "") / 10);
+    var nSong = id.replace("btnPlay", "") % 10;
+    console.log(nArtista);
+    console.log(nSong);
+
+    var Canzone = new Audio("Songs/" + Artisti[nArtista].playlist[nSong].audio);
+    Canzone.play();
+}
+
+function MostraInfo(id) {
+
 }
