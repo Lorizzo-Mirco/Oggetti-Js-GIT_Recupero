@@ -46,6 +46,8 @@ p {
 
     .Button {
         margin: 5px 20% 5px 20%;
+        border: 1px solid gray;
+        border-radius: 5px;
         width: 60%;
     }
 }

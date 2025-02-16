@@ -179,16 +179,41 @@ function CaricaPagina() {
     }
 }
 
-function PlaySong(id) {
-    var nArtista = Math.floor(id.replace("btnPlay", "") / 10);
-    var nSong = id.replace("btnPlay", "") % 10;
-    console.log(nArtista);
-    console.log(nSong);
+let Canzone = null;
+let idCanzone = null;
 
-    var Canzone = new Audio("Songs/" + Artisti[nArtista].playlist[nSong].audio);
+function PlaySong(id) {
+    const nArtista = Math.floor(id.replace("btnPlay", "") / 10);
+    const nSong = id.replace("btnPlay", "") % 10;
+
+    // Se è la stessa canzone in uso, alterna play/pause mantenendo il punto attuale
+    if (Canzone && idCanzone === id) {
+        if (Canzone.paused) {
+            Canzone.play();
+            document.getElementById(id).textContent = "STOP";
+        } else {
+            Canzone.pause();
+            document.getElementById(id).textContent = "PLAY";
+        }
+        return;
+    }
+
+    // Se è in uso un'altra canzone, fermala e riavviala da capo
+    if (Canzone) {
+        Canzone.pause();
+        Canzone.currentTime = 0;
+    }
+
+    idCanzone = id;
+    Canzone = new Audio("Songs/" + Artisti[nArtista].playlist[nSong].audio);
     Canzone.play();
+    document.getElementById(id).textContent = "STOP";
 }
 
-function MostraInfo(id) {
 
+function MostraInfo(id) {
+    var nArtista = Math.floor(id.replace("btnInfo", "") / 10);
+    var nSong = id.replace("btnInfo", "") % 10;
+
+    alert(Artisti[nArtista].playlist[nSong].informazioni);
 }
