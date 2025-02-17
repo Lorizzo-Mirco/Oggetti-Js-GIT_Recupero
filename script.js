@@ -134,20 +134,17 @@ function CaricaPagina() {
 
             const txtTitolo = document.createElement("h3");
             txtTitolo.textContent = Canzone.titolo;
-            txtTitolo.classList.add("Info")
             txtTitolo.classList.add("Text")
             HTMLInfo.appendChild(txtTitolo);
 
             const img = document.createElement("img");
             img.src = "Images/" + Canzone.immagine
-            img.classList.add("Info")
             img.classList.add("Img")
             img.id = "img" +  + i + j
             HTMLInfo.appendChild(img);
 
             const btnPlay = document.createElement("button");
             btnPlay.textContent = "PLAY";
-            btnPlay.classList.add("Info");
             btnPlay.classList.add("Button");
             btnPlay.id = "btnPlay" + i + j;
             btnPlay.onclick = () => PlaySong(btnPlay.id);
@@ -155,7 +152,6 @@ function CaricaPagina() {
 
             const btnInfo = document.createElement("button");
             btnInfo.textContent = "INFO";
-            btnInfo.classList.add("Info");
             btnInfo.classList.add("Button");
             btnInfo.id = "btnInfo" + i + j;
             btnInfo.onclick = () => MostraInfo(btnInfo.id);
@@ -164,8 +160,6 @@ function CaricaPagina() {
             const iframeYoutube = document.createElement("iframe");
             iframeYoutube.src = Canzone.link;
             iframeYoutube.classList.add("Video")
-            iframeYoutube.width = 560;
-            iframeYoutube.height = 315;
             iframeYoutube.title = "Video di" + Canzone.titolo;
             iframeYoutube.frameBorder = 0
             iframeYoutube.allow ="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
